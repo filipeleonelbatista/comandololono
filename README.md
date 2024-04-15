@@ -1,6 +1,6 @@
 <img width="100%" src=".github/screen.png">
 
-# Comandolono - Extensão de comandos da live
+# Comandololono - Extensão de comandos da live
 
 # Indice
 
