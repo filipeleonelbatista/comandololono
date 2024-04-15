@@ -64,6 +64,8 @@ Vai no navegador Google Chrome `Extensões > Gerenciar extensões` e  habilite o
 
 O único porém é que em cada alteração que você quiser ver será necessário fazer o build da aplicação.
 
+Outro ponto importante é criar a aplicação no painel dev da twitch e pegar o `client id` e usar no arquivo `.env`
+
 
 ### Passos
 
