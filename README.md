@@ -75,8 +75,9 @@ Outro ponto importante é criar a aplicação no painel dev da twitch e pegar o 
 - [x] Copiar para a area de transferência o comando
 - [x] Filtrar o comando na pesquisa
 - [x] Lista vazia
-- [ ] Enviar o comando direto para a twitch ao clicar
-- [ ] Login na twitch com a extensão
+- [x] Enviar o comando direto para a twitch ao clicar
+- [x] Login na twitch com a extensão
+- [ ] Buscar a lista de audios em um banco de dados ou CSM
 
 ---
 
