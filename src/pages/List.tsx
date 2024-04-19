@@ -11,7 +11,7 @@ import { Toaster } from "@/components/ui/toaster";
 function List() {
   const { toast } = useToast()
 
-  const { handleSignInTwitch, isLogged, sendCommand } = useAuth();
+  const { handleSignInTwitch, isLogged, sendCommand, user } = useAuth();
 
   const [text, setText] = useState<string>('');
 
@@ -55,7 +55,8 @@ function List() {
         </div>
       </div>
 
-      <div className="w-full h-fit flex flex-col items-center gap-2">
+      <div data-logged={isLogged} 
+      className="w-full h-fit flex flex-col data-[logged=true]:flex-row items-center gap-2">
         <Input
           value={text}
           onChange={(event) => setText(event.target.value)}
@@ -64,10 +65,12 @@ function List() {
           className="h-10"
         />
         {
-          !isLogged && (
+          !isLogged ? (
             <button onClick={handleSignInTwitch} className="bg-purple-600 rounded w-full p-2 text-white flex flex-row justify-center items-center gap-4 uppercase font-bold">
               <FaTwitch className="w-6 h-6" /> Entrar com a Twitch
             </button>
+          ) : (
+            <img className="w-10 h-10 rounded-full" src={user?.profile_image_url} alt={user?.display_name} />
           )
         }
       </div>
