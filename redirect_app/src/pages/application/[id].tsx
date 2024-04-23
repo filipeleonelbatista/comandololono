@@ -6,15 +6,26 @@ import { useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
+interface HashObject {
+  [key: string]: string;
+}
+
+interface Params {
+  application_id: string;
+  access_token: string;
+  scope: string;
+  token_type: string;
+}
+
 export default function Application() {
   const router = useRouter()
 
   useEffect(() => {
     // Função para processar os parâmetros após o hash
-    function processHashParams(hash) {
+    function processHashParams(hash: string) {
       // Remover o "#" do início da string e dividir em pares chave-valor
       const params = hash.slice(1).split('&');
-      const data = {};
+      const data: HashObject = {};
 
       // Processar cada par chave-valor
       params.forEach(param => {
@@ -33,7 +44,12 @@ export default function Application() {
       const hashParams = processHashParams(window.location.hash);
 
       // Combinar os parâmetros em um único objeto
-      const params = { application_id: router.query.id, ...hashParams };
+      const params: Params = { 
+        application_id: router.query.id[0],
+        access_token: hashParams.access_token,
+        scope: hashParams.scope,
+        token_type: hashParams.token_type,
+       };
       console.log("params", params)
 
       // Verificar se todas as variáveis necessárias existem
